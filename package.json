@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~11.2.6",
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
+    "angularx-social-login": "^3.5.5",
+    "bootstrap": "^4.6.0",
     "@google-pay/button-angular": "^2.3.0",
     "@google-pay/button-element": "^2.3.0",
     "rxjs": "~6.6.0",
