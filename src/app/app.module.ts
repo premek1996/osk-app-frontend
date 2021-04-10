@@ -5,14 +5,18 @@ import { HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { CustomerService } from './domain/customer/customer.service';
 import { CourseService } from './domain/course/course.service';
+import { GooglePayComponent } from './google-pay/google-pay.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GooglePayComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    GooglePayButtonModule
   ],
   providers: [
     CustomerService,
