@@ -23,13 +23,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import { AllCourses } from './main-nav/all-courses/all-courses.component';
+import { MyCourses } from './main-nav/my-courses/my-courses.component';
+import { appRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorizationComponent,
     GooglePayComponent,
-    MainNavComponent
+    MainNavComponent,
+    AllCourses,
+    MyCourses
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import {MatCardModule} from '@angular/material/card';
     MatPaginatorModule,
     MatExpansionModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    appRoutingModule
   ],
   providers: [
     CustomerService,

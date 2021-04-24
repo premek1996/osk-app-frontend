@@ -23,13 +23,13 @@
               Dostępne kursy
             </div>
           </a>
-          <a mat-list-item href="#">
+          <a mat-list-item routerLink="/mycourses">
             <mat-icon class="color-text-bright" aria-hidden="false" aria-label="Moje kursy">trending_up</mat-icon>
             <div class="ml-2 color-text-bright">
               Moje kursy
             </div>
           </a>
-          <a mat-list-item href="#">
+          <a mat-list-item>
             <mat-icon class="color-text-bright" aria-hidden="false" aria-label="Moje konto">people</mat-icon>
             <div class="ml-2 color-text-bright">
               Moje konto
@@ -52,8 +52,8 @@
       </mat-toolbar>
       <!-- Add Content Here -->
       <!-- TODO: use angular routing in this place  -->
-      <app-google-pay></app-google-pay>
-
+      <!-- <app-google-pay></app-google-pay> -->
+      <router-outlet></router-outlet>
       <!-- Add Content Here -->
     </mat-sidenav-content>
   </mat-sidenav-container>
