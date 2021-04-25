@@ -8,16 +8,16 @@
             <div class="color-text-bright" style="width: 100%;">
               <img class="logo-small-menu" alt="Responsive image" src="assets/image/logo_small.png">
               <div class="name-info">
-                Cześć Marek
+                Cześć {{authorizedUser.firstName}}
               </div>
               <div class="mail-info">
-                marek.marek@gmail.com
+                {{authorizedUser.email}}
               </div>
             </div>
         </mat-toolbar>
         <mat-divider class="menu-divider"></mat-divider>
         <mat-nav-list>
-          <a mat-list-item href="#">
+          <a mat-list-item routerLink="/allcourses" href="#">
             <mat-icon class="color-text-bright" aria-hidden="false" aria-label="Dostępne kursy">account_balance_wallet</mat-icon>
             <div class="ml-2 color-text-bright">
               Dostępne kursy
@@ -47,7 +47,7 @@
           (click)="drawer.toggle()"
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button> 
+        </button>
         <img class="logo-main-menu" alt="Responsive image" src="assets/image/logo.png">
       </mat-toolbar>
       <!-- Add Content Here -->
@@ -57,4 +57,3 @@
       <!-- Add Content Here -->
     </mat-sidenav-content>
   </mat-sidenav-container>
-  

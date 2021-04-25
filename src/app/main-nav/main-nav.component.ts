@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import {SocialUser} from 'angularx-social-login';
 
 @Component({
   selector: 'app-main-nav',
@@ -10,6 +11,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class MainNavComponent {
 
+  @Input() authorizedUser: SocialUser;
   active = null;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
