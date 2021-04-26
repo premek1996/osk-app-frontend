@@ -39,10 +39,6 @@ export class AuthorizationComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
-  signOut(): void {
-    this.authService.signOut();
-  }
-
   addCustomerIfNotExists(customer: Customer): void {
     this.customerService.createCustomerIfNotExists(customer)
       .subscribe(

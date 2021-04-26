@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import {SocialUser} from 'angularx-social-login';
+import {SocialAuthService, SocialUser} from 'angularx-social-login';
 
 @Component({
   selector: 'app-main-nav',
@@ -20,6 +20,9 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver,  private authService: SocialAuthService) {}
 
+  signOut(): void {
+    this.authService.signOut();
+  }
 }
