@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {TheoreticalCourse} from "../domain/theoreticalcourse/theoreticalcourse";
+import {TheoreticalCourseService} from "../domain/theoreticalcourse/theoreticalcourse.service";
 
 @Component({
   selector: 'app-google-pay',
@@ -7,48 +9,53 @@ import { Component, Input } from '@angular/core';
 })
 export class GooglePayComponent {
 
-    @Input() totalPrice : string;
+  constructor(private theoreticalCourseService: TheoreticalCourseService) {
+  }
 
-    private paymentRequest = {
-        apiVersion: 2,
-        apiVersionMinor: 0,
-        allowedPaymentMethods: [
-          {
-            type: "CARD",
-            parameters: {
-              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-              allowedCardNetworks: ["AMEX", "VISA", "MASTERCARD"]
-            },
-            tokenizationSpecification: {
-              type: "PAYMENT_GATEWAY",
-              parameters: {
-                gateway: "example",
-                gatewayMerchantId: "exampleGatewayMerchantId"
-              }
-            }
-          }
-        ],
-        merchantInfo: {
-          merchantId: "12345678901234567890",
-          merchantName: "OSK"
+  @Input() theoreticalCourse: TheoreticalCourse;
+  @Input() customerId: number;
+
+  private paymentRequest = {
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: "CARD",
+        parameters: {
+          allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+          allowedCardNetworks: ["AMEX", "VISA", "MASTERCARD"]
         },
-        transactionInfo: {
-            totalPriceStatus: "FINAL",
-            totalPriceLabel: "Total",
-            totalPrice: "0.00",
-            currencyCode: "PLN",
-            countryCode: "PL"
+        tokenizationSpecification: {
+          type: "PAYMENT_GATEWAY",
+          parameters: {
+            gateway: "example",
+            gatewayMerchantId: "exampleGatewayMerchantId"
           }
-      };
-
-      getPaymentRequest(totalPrice: string){
-        this.paymentRequest.transactionInfo.totalPrice = "" + totalPrice + "";
-          return this.paymentRequest;
+        }
       }
+    ],
+    merchantInfo: {
+      merchantId: "12345678901234567890",
+      merchantName: "OSK"
+    },
+    transactionInfo: {
+      totalPriceStatus: "FINAL",
+      totalPriceLabel: "Total",
+      totalPrice: "0.00",
+      currencyCode: "PLN",
+      countryCode: "PL"
+    }
+  };
 
-      onLoadPaymentData(event) {
-        //TODO:  action after payment
-        console.log("load payment data", event.detail);
-      }
+  getPaymentRequest() {
+    this.paymentRequest.transactionInfo.totalPrice = "" + this.theoreticalCourse.course.price + "";
+    return this.paymentRequest;
+  }
+
+  onLoadPaymentData(event) {
+    this.theoreticalCourseService.enrollCustomerInTheoreticalCourse(this.customerId, this.theoreticalCourse.id).subscribe(data => {
+      console.log("Theoretical course participation", data);
+    });
+  }
 
 }

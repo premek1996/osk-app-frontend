@@ -1,31 +1,36 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { CustomerService } from './domain/customer/customer.service';
-import { CourseService } from './domain/course/course.service';
+import {AppComponent} from './app.component';
+import {CustomerService} from './domain/customer/customer.service';
+import {CourseService} from './domain/course/course.service';
 import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { AuthorizationComponent } from './authorization/authorization.component';
-import { GooglePayComponent } from './google-pay/google-pay.component';
-import { GooglePayButtonModule } from '@google-pay/button-angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {AuthorizationComponent} from './authorization/authorization.component';
+import {GooglePayComponent} from './google-pay/google-pay.component';
+import {GooglePayButtonModule} from '@google-pay/button-angular';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MainNavComponent} from './main-nav/main-nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-import { AllCourses } from './main-nav/all-courses/all-courses.component';
-import { MyCourses } from './main-nav/my-courses/my-courses.component';
-import { appRoutingModule } from './app.routing';
+import {AllCourses} from './main-nav/all-courses/all-courses.component';
+import {MyCourses} from './main-nav/my-courses/my-courses.component';
+import {appRoutingModule} from './app.routing';
+import {CourseComponent} from './main-nav/course/course.component';
+import {TheoreticalCourseService} from "./domain/theoreticalcourse/theoreticalcourse.service";
+import { AllTheoreticalCoursesComponent } from './main-nav/all-theoretical-courses/all-theoretical-courses.component';
+import { TheoreticalCourseComponent } from './main-nav/theoretical-course/theoretical-course.component';
+import { MyCourseComponent } from './main-nav/my-course/my-course.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,11 @@ import { appRoutingModule } from './app.routing';
     GooglePayComponent,
     MainNavComponent,
     AllCourses,
-    MyCourses
+    MyCourses,
+    CourseComponent,
+    AllTheoreticalCoursesComponent,
+    TheoreticalCourseComponent,
+    MyCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +68,7 @@ import { appRoutingModule } from './app.routing';
   providers: [
     CustomerService,
     CourseService,
+    TheoreticalCourseService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -76,4 +86,5 @@ import { appRoutingModule } from './app.routing';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

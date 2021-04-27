@@ -1,3 +1,4 @@
-<h1>Moje kursy - komponent</h1>
-<h3>test płatności</h3>
-<app-google-pay [totalPrice]= "69.69"></app-google-pay>
+<h1>Moje kursy</h1>
+<app-my-course *ngFor="let theoreticalCourse of theoreticalCourses"
+               [theoreticalCourse]="theoreticalCourse">
+</app-my-course>

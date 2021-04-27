@@ -1,16 +1,16 @@
 <div *ngIf="loggedIn===false">
   <img src="../../assets/image/osk_background.jpg" class="background" alt="">
   <div class="main-div">
-  <mat-card>
-    <mat-card-title class="py-4 px-4">Sign in to OSK App</mat-card-title>
-    <mat-card-content>
+    <mat-card>
+      <mat-card-title class="py-4 px-4">Sign in to OSK App</mat-card-title>
+      <mat-card-content>
         <div class="text-center py-2">
           <button type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With Google
           </button>
         </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 <div *ngIf="loggedIn===true">
 
