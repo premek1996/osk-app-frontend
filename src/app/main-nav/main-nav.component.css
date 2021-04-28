@@ -1,52 +1,52 @@
 .sidenav-container {
-    height: 100%;
-  }
-  
-  .sidenav {
-    width: 200px;
-  }
-  
-  .sidenav .mat-toolbar {
-    background: inherit;
-  }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  
-  .logo-small-menu{
-    display: block;
-    margin-top: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70px;
-  }
-  
-  .logo-main-menu{
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .mail-info{
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 8px;
-    text-align: center;
-  }
-  
-  .menu-divider{
-    margin-top: 70px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  
-  .name-info{
-    font-size: 14px;
-    text-align: center;
-  }
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+.logo-small-menu {
+  display: block;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+}
+
+.logo-main-menu {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mail-info {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 8px;
+  text-align: center;
+}
+
+.menu-divider {
+  margin-top: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.name-info {
+  font-size: 14px;
+  text-align: center;
+}

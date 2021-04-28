@@ -22,9 +22,9 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getCustomers(): Observable<Customer> {
+  public getCustomers(): Observable<Customer[]> {
     console.log('Getting all customers');
-    return this.httpClient.get<Customer>(this.URL)
+    return this.httpClient.get<Customer[]>(this.URL)
       .pipe(
         catchError(this.handleError)
       );
@@ -69,7 +69,6 @@ export class CustomerService {
       );
   }
 
-  // Error handling
   private handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
