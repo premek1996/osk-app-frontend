@@ -2,4 +2,7 @@
 <p>Data rozpoczęcia: {{theoreticalCourse.startDate}}</p>
 <p>{{theoreticalCourse.course.theoreticalHours}} godzin zajęć teoretycznych</p>
 <p>{{theoreticalCourse.course.practicalHours}} godzin zajęć praktycznych</p>
+<a routerLink="{{theoreticalCourse.course.id}}/drivingclasses">
+  <button mat-raised-button>Wyświetl wszystkie jazdy</button>
+</a>
 <hr>

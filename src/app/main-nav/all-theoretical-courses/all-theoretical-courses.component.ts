@@ -27,7 +27,6 @@ export class AllTheoreticalCoursesComponent implements OnInit {
         this.theoreticalCourses = data;
         console.log("Theoretical courses", this.theoreticalCourses);
       });
-
   }
 
 }

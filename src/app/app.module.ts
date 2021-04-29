@@ -28,9 +28,12 @@ import {MyCourses} from './main-nav/my-courses/my-courses.component';
 import {appRoutingModule} from './app.routing';
 import {CourseComponent} from './main-nav/course/course.component';
 import {TheoreticalCourseService} from "./domain/theoreticalcourse/theoreticalcourse.service";
-import { AllTheoreticalCoursesComponent } from './main-nav/all-theoretical-courses/all-theoretical-courses.component';
-import { TheoreticalCourseComponent } from './main-nav/theoretical-course/theoretical-course.component';
-import { MyCourseComponent } from './main-nav/my-course/my-course.component';
+import {AllTheoreticalCoursesComponent} from './main-nav/all-theoretical-courses/all-theoretical-courses.component';
+import {TheoreticalCourseComponent} from './main-nav/theoretical-course/theoretical-course.component';
+import {MyCourseComponent} from './main-nav/my-course/my-course.component';
+import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classes.component';
+import {DrivingClassComponent} from './main-nav/driving-class/driving-class.component';
+import {DrivingClassService} from "./domain/drivingclass/drivingclass.service";
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { MyCourseComponent } from './main-nav/my-course/my-course.component';
     CourseComponent,
     AllTheoreticalCoursesComponent,
     TheoreticalCourseComponent,
-    MyCourseComponent
+    MyCourseComponent,
+    DrivingClassesComponent,
+    DrivingClassComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,7 @@ import { MyCourseComponent } from './main-nav/my-course/my-course.component';
     CustomerService,
     CourseService,
     TheoreticalCourseService,
+    DrivingClassService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
