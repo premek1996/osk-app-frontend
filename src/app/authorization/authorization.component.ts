@@ -44,6 +44,8 @@ export class AuthorizationComponent implements OnInit {
       .subscribe(
         data => {
           console.log('Customer:', data);
+          this.customerService.setLoggedCustomer(data);
+          console.log('Logged user:', this.customerService.getLoggedCustomer());
         },
         error => {
           console.log('Something was wrong while processing customer', error);
