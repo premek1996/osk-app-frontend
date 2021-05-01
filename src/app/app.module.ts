@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {CustomerService} from './domain/customer/customer.service';
 import {CourseService} from './domain/course/course.service';
 import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthorizationComponent} from './authorization/authorization.component';
 import {GooglePayComponent} from './google-pay/google-pay.component';
@@ -34,6 +34,8 @@ import {MyCourseComponent} from './main-nav/my-course/my-course.component';
 import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classes.component';
 import {DrivingClassComponent} from './main-nav/driving-class/driving-class.component';
 import {DrivingClassService} from "./domain/drivingclass/drivingclass.service";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,9 @@ import {DrivingClassService} from "./domain/drivingclass/drivingclass.service";
     MatExpansionModule,
     MatInputModule,
     MatCardModule,
+    MatDialogModule,
+    FormsModule,
+    MatNativeDateModule,
     appRoutingModule
   ],
   providers: [

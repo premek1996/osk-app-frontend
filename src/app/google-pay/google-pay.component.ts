@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {TheoreticalCourse} from "../domain/theoreticalcourse/theoreticalcourse";
 import {TheoreticalCourseService} from "../domain/theoreticalcourse/theoreticalcourse.service";
+import {MatDialog} from '@angular/material/dialog'
+import { DialogPaymentConfirmation } from './payment-confirmation/dialog-payment-confirmation.component';
 
 @Component({
   selector: 'app-google-pay',
@@ -9,7 +11,7 @@ import {TheoreticalCourseService} from "../domain/theoreticalcourse/theoreticalc
 })
 export class GooglePayComponent {
 
-  constructor(private theoreticalCourseService: TheoreticalCourseService) {
+  constructor(private theoreticalCourseService: TheoreticalCourseService, public dialog : MatDialog) {
   }
 
   @Input() theoreticalCourse: TheoreticalCourse;
@@ -56,6 +58,7 @@ export class GooglePayComponent {
     this.theoreticalCourseService.enrollCustomerInTheoreticalCourse(this.customerId, this.theoreticalCourse.id).subscribe(data => {
       console.log("Theoretical course participation", data);
     });
+    this.dialog.open(DialogPaymentConfirmation);
   }
 
 }
