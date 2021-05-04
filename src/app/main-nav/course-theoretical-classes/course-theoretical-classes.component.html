@@ -1,0 +1,7 @@
+<h1>Terminy zajęć</h1>
+<app-theoretical-class *ngFor="let theoreticalClass of theoreticalClasses"
+                       [theoreticalClass]="theoreticalClass">
+</app-theoretical-class>
+<a routerLink="/">
+  <button mat-raised-button>Importuj do kalendarza</button>
+</a>

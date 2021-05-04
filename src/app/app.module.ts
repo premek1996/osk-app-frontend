@@ -27,15 +27,18 @@ import {AllCourses} from './main-nav/all-courses/all-courses.component';
 import {MyCourses} from './main-nav/my-courses/my-courses.component';
 import {appRoutingModule} from './app.routing';
 import {CourseComponent} from './main-nav/course/course.component';
-import {TheoreticalCourseService} from "./domain/theoreticalcourse/theoreticalcourse.service";
+import {TheoreticalCourseService} from './domain/theoreticalcourse/theoreticalcourse.service';
 import {AllTheoreticalCoursesComponent} from './main-nav/all-theoretical-courses/all-theoretical-courses.component';
 import {TheoreticalCourseComponent} from './main-nav/theoretical-course/theoretical-course.component';
 import {MyCourseComponent} from './main-nav/my-course/my-course.component';
 import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classes.component';
 import {DrivingClassComponent} from './main-nav/driving-class/driving-class.component';
-import {DrivingClassService} from "./domain/drivingclass/drivingclass.service";
+import {DrivingClassService} from './domain/drivingclass/drivingclass.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TheoreticalClassComponent } from './main-nav/theoretical-class/theoretical-class.component';
+import { CourseTheoreticalClassesComponent } from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
+import {TheoreticalClassService} from './domain/theoreticalclass/theoreticalclass.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     TheoreticalCourseComponent,
     MyCourseComponent,
     DrivingClassesComponent,
-    DrivingClassComponent
+    DrivingClassComponent,
+    TheoreticalClassComponent,
+    CourseTheoreticalClassesComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +84,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     CustomerService,
     CourseService,
     TheoreticalCourseService,
+    TheoreticalClassService,
     DrivingClassService,
     {
       provide: 'SocialAuthServiceConfig',
