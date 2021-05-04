@@ -3,6 +3,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {TheoreticalClass} from './theoreticalclass';
+import {TheoreticalCourse} from '../theoreticalcourse/theoreticalcourse';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,13 @@ export class TheoreticalClassService {
 
   public getTheoreticalClasses(): Observable<TheoreticalClass[]> {
     return this.httpClient.get<TheoreticalClass[]>(this.URL)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  public getTheoreticalClassesByCourseId(courseId: number): Observable<TheoreticalClass[]> {
+    return this.httpClient.get<TheoreticalClass[]>(this.URL + '/courseId/' + courseId)
       .pipe(
         catchError(this.handleError)
       );

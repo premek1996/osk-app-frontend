@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'mycourses', component: MyCourses},
   {path: 'mycourses/:courseId/drivingclasses', component: DrivingClassesComponent},
   {path: 'login', component: AuthorizationComponent},
-  {path: 'theoreticalclasses', component: CourseTheoreticalClassesComponent},
+  {path: 'theoreticalclasses/:courseId', component: CourseTheoreticalClassesComponent},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];
