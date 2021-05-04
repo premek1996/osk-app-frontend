@@ -3,6 +3,8 @@ import {TheoreticalClass} from '../../domain/theoreticalclass/theoreticalclass';
 import {TheoreticalClassService} from '../../domain/theoreticalclass/theoreticalclass.service';
 import {TheoreticalCourseService} from '../../domain/theoreticalcourse/theoreticalcourse.service';
 import {ActivatedRoute} from '@angular/router';
+import {DialogCalendarConfirmationComponent} from '../../google-calendar/calendar-confirmation/dialog-calendar-confirmation.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-course-theoretical-classes',
@@ -13,8 +15,9 @@ export class CourseTheoreticalClassesComponent implements OnInit {
 
   theoreticalClasses: TheoreticalClass[];
   courseId: number;
+  date: string;
 
-  constructor(private theoreticalClassService: TheoreticalClassService, private route: ActivatedRoute) {
+  constructor(private theoreticalClassService: TheoreticalClassService, private route: ActivatedRoute, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -28,4 +31,8 @@ export class CourseTheoreticalClassesComponent implements OnInit {
         console.log('Theoretical classes', this.theoreticalClasses);
       });
   }
+  public confirm(): void {
+    this.dialog.open(DialogCalendarConfirmationComponent);
+  }
+
 }

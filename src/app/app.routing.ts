@@ -6,6 +6,7 @@ import {AuthorizationComponent} from './authorization/authorization.component';
 import {AllTheoreticalCoursesComponent} from './main-nav/all-theoretical-courses/all-theoretical-courses.component';
 import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classes.component';
 import {CourseTheoreticalClassesComponent} from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
+import {GoogleCalendarComponent} from './google-calendar/google-calendar.component';
 
 const routes: Routes = [
   {path: '', component: AllCourses},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'mycourses/:courseId/drivingclasses', component: DrivingClassesComponent},
   {path: 'login', component: AuthorizationComponent},
   {path: 'theoreticalclasses/:courseId', component: CourseTheoreticalClassesComponent},
+  {path: 'theoreticalclasses/:courseId/calendar', component: GoogleCalendarComponent},
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

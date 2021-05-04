@@ -39,6 +39,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { TheoreticalClassComponent } from './main-nav/theoretical-class/theoretical-class.component';
 import { CourseTheoreticalClassesComponent } from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
 import {TheoreticalClassService} from './domain/theoreticalclass/theoreticalclass.service';
+import { GoogleCalendarComponent } from './google-calendar/google-calendar.component';
+import { DialogCalendarConfirmationComponent } from './google-calendar/calendar-confirmation/dialog-calendar-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import {TheoreticalClassService} from './domain/theoreticalclass/theoreticalclas
     DrivingClassesComponent,
     DrivingClassComponent,
     TheoreticalClassComponent,
-    CourseTheoreticalClassesComponent
+    CourseTheoreticalClassesComponent,
+    GoogleCalendarComponent,
+    DialogCalendarConfirmationComponent
   ],
   imports: [
     BrowserModule,
