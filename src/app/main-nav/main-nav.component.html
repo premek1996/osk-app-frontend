@@ -1,12 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav background-color-primary" fixedInViewport
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
     <div class="">
-      <mat-toolbar>
+      <mat-toolbar class="mt-2">
         <div class="color-text-bright" style="width: 100%;">
-          <img class="logo-small-menu" alt="Responsive image" src="assets/image/logo_small.png">
+          <img class="logo-small-menu" alt="Responsive image" src="assets/image/osk_logo.jpg">
           <div class="name-info">
             Cześć {{authorizedUser.firstName}}
           </div>
@@ -46,7 +46,7 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="white">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -55,7 +55,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <img class="logo-main-menu" alt="Responsive image" src="assets/image/logo.png">
+      <!--<img class="logo-main-menu" alt="Responsive image" src="assets/image/logo.png">-->
     </mat-toolbar>
     <!-- Add Content Here -->
     <!-- TODO: use angular routing in this place  -->

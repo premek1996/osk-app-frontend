@@ -10,6 +10,11 @@
   background: inherit;
 }
 
+.mat-toolbar {
+  height: 54px;
+  background: #383858;
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
@@ -19,7 +24,7 @@
 
 .logo-small-menu {
   display: block;
-  margin-top: 60px;
+  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
   width: 70px;

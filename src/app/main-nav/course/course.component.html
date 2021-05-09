@@ -1,11 +1,18 @@
-<h3> {{course.name}} </h3>
-<p>Cena: {{course.price}} zł</p>
-<p>{{course.theoreticalHours}} godzin zajęć teoretycznych</p>
-<p>{{course.practicalHours}} godzin zajęć praktycznych</p>
-<a routerLink="{{course.id}}/alltheoreticalcourses">
-  <button mat-raised-button>Zapisz się</button>
-</a>
-<hr>
+<div class="card shadow mb-1">
+  <div class="card-body">
+    <h3 class="card-title font-weight-bold"> {{course.name}} </h3>
+    <hr>
+    <p class="card-subtitle mb-2 text-muted">Cena: {{course.price}} zł</p>
+    <p>Zajęcia:</p>
+    <ul>
+      <li>{{course.theoreticalHours}} godzin teoretycznych</li>
+      <li>{{course.practicalHours}} godzin praktycznych</li>
+    </ul>
+    <a class="card-link" routerLink="{{course.id}}/alltheoreticalcourses">
+      <button mat-raised-button class="btn btn-primary">Zapisz się</button>
+    </a>
+  </div>
+</div>
 
 
 
