@@ -34,13 +34,16 @@ import {MyCourseComponent} from './main-nav/my-course/my-course.component';
 import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classes.component';
 import {DrivingClassComponent} from './main-nav/driving-class/driving-class.component';
 import {DrivingClassService} from './domain/drivingclass/drivingclass.service';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatNativeDateModule } from '@angular/material/core';
-import { TheoreticalClassComponent } from './main-nav/theoretical-class/theoretical-class.component';
-import { CourseTheoreticalClassesComponent } from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatNativeDateModule} from '@angular/material/core';
+import {TheoreticalClassComponent} from './main-nav/theoretical-class/theoretical-class.component';
+import {CourseTheoreticalClassesComponent} from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
 import {TheoreticalClassService} from './domain/theoreticalclass/theoreticalclass.service';
-import { GoogleCalendarComponent } from './google-calendar/google-calendar.component';
-import { DialogCalendarConfirmationComponent } from './google-calendar/calendar-confirmation/dialog-calendar-confirmation.component';
+import {GoogleCalendarComponent} from './google-calendar/google-calendar.component';
+import {DialogCalendarConfirmationComponent} from './google-calendar/calendar-confirmation/dialog-calendar-confirmation.component';
+import {MapComponent} from './main-nav/map-component/map.component';
+import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';            // @agm/core
+import {AgmDirectionModule} from 'agm-direction';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -59,10 +62,15 @@ import { DialogCalendarConfirmationComponent } from './google-calendar/calendar-
     TheoreticalClassComponent,
     CourseTheoreticalClassesComponent,
     GoogleCalendarComponent,
-    DialogCalendarConfirmationComponent
+    DialogCalendarConfirmationComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({ // @agm/core
+      apiKey: 'AIzaSyCVvgGJOQqz4rxw41FPNs0QY4EKpy_qLUI',
+    }),
+    AgmDirectionModule,     // agm-direction
     SocialLoginModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -82,7 +90,8 @@ import { DialogCalendarConfirmationComponent } from './google-calendar/calendar-
     MatDialogModule,
     FormsModule,
     MatNativeDateModule,
-    appRoutingModule
+    appRoutingModule,
+    AgmDirectionModule
   ],
   providers: [
     CustomerService,
@@ -103,7 +112,8 @@ import { DialogCalendarConfirmationComponent } from './google-calendar/calendar-
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    GoogleMapsAPIWrapper
   ],
   bootstrap: [AppComponent]
 })
