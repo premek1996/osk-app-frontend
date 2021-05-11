@@ -1,11 +1,18 @@
-<h3> {{theoreticalCourse.course.name}} </h3>
-<p>Data rozpoczęcia: {{theoreticalCourse.startDate}}</p>
-<p>{{theoreticalCourse.course.theoreticalHours}} godzin zajęć teoretycznych</p>
-<p>{{theoreticalCourse.course.practicalHours}} godzin zajęć praktycznych</p>
-<a routerLink="{{theoreticalCourse.course.id}}/drivingclasses">
-  <button mat-raised-button>Wyświetl wszystkie jazdy</button>
-</a>
-<a routerLink="/theoreticalclasses/{{theoreticalCourse.id}}">
-  <button mat-raised-button>Wyświetl wszystkie terminy zajęć</button>
-</a>
-<hr>
+<div class="card shadow mb-1">
+  <div class="card-body">
+    <h3 class="card-title font-weight-bold"> {{theoreticalCourse.course.name}} </h3>
+    <hr>
+    <p>Data rozpoczęcia: {{theoreticalCourse.startDate|date:'dd.MM.yyyy'}}</p>
+    <ul>
+      <li>{{theoreticalCourse.course.theoreticalHours}} godzin zajęć teoretycznych</li>
+      <li>{{theoreticalCourse.course.practicalHours}} godzin zajęć praktycznych</li>
+    </ul>
+    <a routerLink="{{theoreticalCourse.course.id}}/drivingclasses">
+      <button mat-raised-button class="btn btn-primary">Wyświetl wszystkie jazdy</button>
+    </a>
+    <a routerLink="/theoreticalclasses/{{theoreticalCourse.id}}">
+      <button mat-raised-button class="btn btn-primary">Wyświetl wszystkie terminy zajęć</button>
+  </a>
+
+  </div>
+</div>

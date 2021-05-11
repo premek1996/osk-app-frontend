@@ -1,11 +1,15 @@
-<h1>Terminy zajęć</h1>
+<div class="container">
+<h1 class="py-2">Terminy zajęć</h1>
+  <hr>
+<div class="date-list">
 <app-theoretical-class *ngFor="let theoreticalClass of theoreticalClasses"
                        [theoreticalClass]="theoreticalClass">
 </app-theoretical-class>
-<p>
+</div>
+<p class="date-list">
   <a href='{{url}}'
     target="_blank">
-    <button mat-raised-button>Importuj do kalendarza</button>
+    <button mat-raised-button class="btn btn-primary">Importuj do kalendarza</button>
   </a>
 </p>
-
+</div>
