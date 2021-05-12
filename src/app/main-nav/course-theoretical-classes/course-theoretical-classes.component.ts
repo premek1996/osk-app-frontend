@@ -18,7 +18,7 @@ export class CourseTheoreticalClassesComponent implements OnInit {
   courseId: number;
   courseName: string;
   // url: string;
-  url = 'https://calendar.google.com/calendar/u/0/r/eventedit?text=kurs+prawo+jazdy+kat.+B&dates=20210506T180000UTC/20210506T193000UTC&recur=RRULE:FREQ%3DWEEKLY;COUNT%3D3';
+  url = 'https://calendar.google.com/calendar/u/0?cid=bmZ2Zmg0azBza2JocnBpdmQwb3QyNG1zcGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ';
   constructor(private theoreticalClassService: TheoreticalClassService, private route: ActivatedRoute, public dialog: MatDialog) {
   }
 
