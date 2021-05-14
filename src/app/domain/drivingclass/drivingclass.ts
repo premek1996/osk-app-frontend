@@ -1,3 +1,5 @@
+import {Location} from "./location";
+
 export interface DrivingClass {
 
   id?: number;

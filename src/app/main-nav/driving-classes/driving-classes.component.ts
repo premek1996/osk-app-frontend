@@ -22,6 +22,7 @@ export class DrivingClassesComponent implements OnInit {
       console.log("Course id: ", this.courseId)
     });
     this.drivingClasses = this.drivingClassService.getDrivingClassesByCourseIdAndCustomerId(this.courseId, 1);
+    console.log("NgOnInit: " + this.drivingClasses);
   }
 
 }

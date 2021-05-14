@@ -16,6 +16,11 @@ export class DrivingClassService {
   }
 
   public getDrivingClassesByCourseIdAndCustomerId(courseId: number, customerId: number): DrivingClass[] {
+    this.setDrivingClasses(courseId, customerId);
+    return this.drivingClasses;
+  }
+
+  private setDrivingClasses(courseId: number, customerId: number) {
     this.httpClient.get<DrivingClass[]>(this.URL + "/" + courseId + "/" + customerId)
       .pipe(
         catchError(this.handleError)
@@ -23,7 +28,6 @@ export class DrivingClassService {
       this.drivingClasses = data;
       console.log("Driving classes", this.drivingClasses);
     });
-    return this.drivingClasses;
   }
 
   public getDrivingClassById(drivingClassID: number): DrivingClass {
