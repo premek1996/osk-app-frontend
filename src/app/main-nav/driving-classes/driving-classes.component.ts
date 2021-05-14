@@ -21,12 +21,7 @@ export class DrivingClassesComponent implements OnInit {
       this.courseId = params["courseId"];
       console.log("Course id: ", this.courseId)
     });
-
-    this.drivingClassService.getDrivingClassesByCourseIdAndCustomerId(this.courseId, 1)
-      .subscribe(data => {
-        this.drivingClasses = data;
-        console.log("Driving classes", this.drivingClasses);
-      });
+    this.drivingClasses = this.drivingClassService.getDrivingClassesByCourseIdAndCustomerId(this.courseId, 1);
   }
 
 }

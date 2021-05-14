@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-map',
@@ -7,7 +8,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-
   public lat = 51.10926382422896;
   public lng = 17.061962513665772;
 
@@ -15,10 +15,16 @@ export class MapComponent implements OnInit {
   public destination: any;
   public waypoints: any;
 
-  constructor() {
+  drivingClassId: number;
+
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.drivingClassId = params["drivingClassId"];
+      console.log("DrivingClassId: ", this.drivingClassId)
+    });
     this.getDirection();
   }
 

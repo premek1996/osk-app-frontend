@@ -10,15 +10,28 @@ import {DrivingClass} from "./drivingclass";
 export class DrivingClassService {
 
   private readonly URL = 'http://localhost:8080/driving-classes';
+  private drivingClasses: DrivingClass[];
 
   constructor(private httpClient: HttpClient) {
   }
 
-  public getDrivingClassesByCourseIdAndCustomerId(courseId: number, customerId: number): Observable<DrivingClass[]> {
-    return this.httpClient.get<DrivingClass[]>(this.URL + "/" + courseId + "/" + customerId)
+  public getDrivingClassesByCourseIdAndCustomerId(courseId: number, customerId: number): DrivingClass[] {
+    this.httpClient.get<DrivingClass[]>(this.URL + "/" + courseId + "/" + customerId)
       .pipe(
         catchError(this.handleError)
-      );
+      ).subscribe(data => {
+      this.drivingClasses = data;
+      console.log("Driving classes", this.drivingClasses);
+    });
+    return this.drivingClasses;
+  }
+
+  public getDrivingClassById(drivingClassID: number): DrivingClass {
+    for (let i = 0; i < this.drivingClasses.length; i++) {
+      if (this.drivingClasses[i].id == drivingClassID) {
+        return this.drivingClasses[i];
+      }
+    }
   }
 
   private handleError(error: HttpErrorResponse): Observable<any> {
