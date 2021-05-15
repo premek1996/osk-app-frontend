@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'allcourses/:courseId/alltheoreticalcourses', component: AllTheoreticalCoursesComponent},
   {path: 'mycourses', component: MyCourses},
   {path: 'mycourses/:courseId/drivingclasses', component: DrivingClassesComponent},
-  {path: 'mycourses/:courseId/drivingclasses/route', component: MapComponent},
+  {path: 'mycourses/:courseId/drivingclasses/:drivingClassId/route', component: MapComponent},
   {path: 'login', component: AuthorizationComponent},
   {path: 'theoreticalclasses/:courseId', component: CourseTheoreticalClassesComponent},
   {path: 'theoreticalclasses/:courseId/calendar', component: GoogleCalendarComponent},
