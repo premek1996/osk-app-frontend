@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {TheoreticalCourse} from "../../domain/theoreticalcourse/theoreticalcourse";
-import {TheoreticalCourseService} from "../../domain/theoreticalcourse/theoreticalcourse.service";
+import {TheoreticalCourse} from '../../domain/theoreticalcourse/theoreticalcourse';
+import {TheoreticalCourseService} from '../../domain/theoreticalcourse/theoreticalcourse.service';
+import {CustomerService} from '../../domain/customer/customer.service';
 
 @Component({
   selector: 'app-my-courses',
@@ -11,13 +12,14 @@ export class MyCourses {
 
   theoreticalCourses: TheoreticalCourse[];
 
-  constructor(private theoreticalCourseService: TheoreticalCourseService) {
+  constructor(private theoreticalCourseService: TheoreticalCourseService, private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
-    this.theoreticalCourseService.getTheoreticalCoursesByCustomerId(1)
+    this.theoreticalCourseService.getTheoreticalCoursesByCustomerId(this.customerService.getLoggedCustomer().id)
       .subscribe(data => {
         this.theoreticalCourses = data;
+        console.log("Logged user ", this.customerService.getLoggedCustomer());
         console.log("Courses", this.theoreticalCourses);
       });
   }

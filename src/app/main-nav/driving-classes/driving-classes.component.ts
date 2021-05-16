@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DrivingClass} from "../../domain/drivingclass/drivingclass";
 import {ActivatedRoute} from "@angular/router";
 import {DrivingClassService} from "../../domain/drivingclass/drivingclass.service";
+import {CustomerService} from '../../domain/customer/customer.service';
 
 @Component({
   selector: 'app-driving-classes',
@@ -13,7 +14,7 @@ export class DrivingClassesComponent implements OnInit {
   courseId: number;
   drivingClasses: DrivingClass[];
 
-  constructor(private drivingClassService: DrivingClassService, private route: ActivatedRoute) {
+  constructor(private drivingClassService: DrivingClassService, private route: ActivatedRoute, private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
@@ -21,7 +22,7 @@ export class DrivingClassesComponent implements OnInit {
       this.courseId = params["courseId"];
       console.log("Course id: ", this.courseId)
     });
-    this.drivingClasses = this.drivingClassService.getDrivingClassesByCourseIdAndCustomerId(this.courseId, 1);
+    this.drivingClasses = this.drivingClassService.getDrivingClassesByCourseIdAndCustomerId(this.courseId, this.customerService.getLoggedCustomer().id);
     console.log("NgOnInit: " + this.drivingClasses);
   }
 
