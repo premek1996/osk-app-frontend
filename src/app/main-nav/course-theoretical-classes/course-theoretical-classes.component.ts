@@ -18,7 +18,8 @@ export class CourseTheoreticalClassesComponent implements OnInit {
   courseId: number;
   courseName: string;
   // url: string;
-  url = 'https://calendar.google.com/calendar/u/0?cid=bmZ2Zmg0azBza2JocnBpdmQwb3QyNG1zcGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ';
+  url = 'https://calendar.google.com/calendar/u/3?cid=Y19paG41cHNjNm9sYXU2bjZnNm1tM2NsdGE1OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t';
+  urlWidget = 'https://calendar.google.com/calendar/embed?src=c_ihn5psc6olau6n6g6mm3clta58%40group.calendar.google.com&ctz=Europe%2FWarsaw';
   constructor(private theoreticalClassService: TheoreticalClassService, private route: ActivatedRoute, public dialog: MatDialog) {
   }
 
@@ -36,7 +37,6 @@ export class CourseTheoreticalClassesComponent implements OnInit {
         this.theoreticalClasses = data;
         console.log('Theoretical classes', this.theoreticalClasses);
       });
-    // this.generateLink();
   }
   public generateLink(): void{
     // tslint:disable-next-line:max-line-length
