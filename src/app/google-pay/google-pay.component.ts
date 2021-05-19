@@ -3,6 +3,7 @@ import {TheoreticalCourse} from "../domain/theoreticalcourse/theoreticalcourse";
 import {TheoreticalCourseService} from "../domain/theoreticalcourse/theoreticalcourse.service";
 import {MatDialog} from '@angular/material/dialog'
 import { DialogPaymentConfirmation } from './payment-confirmation/dialog-payment-confirmation.component';
+import {CustomerService} from '../domain/customer/customer.service';
 
 @Component({
   selector: 'app-google-pay',
@@ -10,12 +11,13 @@ import { DialogPaymentConfirmation } from './payment-confirmation/dialog-payment
   styleUrls: ['./google-pay.component.css']
 })
 export class GooglePayComponent {
+  @Input() theoreticalCourse: TheoreticalCourse;
+  customerId: number;
 
-  constructor(private theoreticalCourseService: TheoreticalCourseService, public dialog : MatDialog) {
+  constructor(private theoreticalCourseService: TheoreticalCourseService, public dialog : MatDialog, private customerService: CustomerService) {
+    this.customerId = customerService.getLoggedCustomer().id;
   }
 
-  @Input() theoreticalCourse: TheoreticalCourse;
-  @Input() customerId: number;
 
   private paymentRequest = {
     apiVersion: 2,
@@ -56,6 +58,7 @@ export class GooglePayComponent {
 
   onLoadPaymentData(event) {
     this.theoreticalCourseService.enrollCustomerInTheoreticalCourse(this.customerId, this.theoreticalCourse.id).subscribe(data => {
+      console.log("Theoretical course participant", this.customerId);
       console.log("Theoretical course participation", data);
     });
     this.dialog.open(DialogPaymentConfirmation);
