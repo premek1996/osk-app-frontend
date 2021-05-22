@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Customer} from './customer';
-import {catchError, map, tap} from 'rxjs/operators';
-import {SocialUser} from 'angularx-social-login';
+import {catchError} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -48,8 +47,7 @@ export class CustomerService {
   }
 
   public createCustomerIfNotExists(customer: Customer): Observable<Customer> {
-
-     return this.httpClient.get<Customer>(this.URL + '/' + customer.mail)
+    return this.httpClient.get<Customer>(this.URL + '/' + customer.mail)
       .pipe(
         catchError(error => error.status === this.HTTP_STATUS_NOT_FOUND ? this.createCustomer(customer) : this.handleError)
       );
@@ -91,4 +89,5 @@ export class CustomerService {
   public getLoggedCustomer(): Customer {
     return this.loggedCustomer;
   }
+
 }

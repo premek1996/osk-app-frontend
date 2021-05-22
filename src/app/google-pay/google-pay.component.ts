@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {TheoreticalCourse} from "../domain/theoreticalcourse/theoreticalcourse";
 import {TheoreticalCourseService} from "../domain/theoreticalcourse/theoreticalcourse.service";
 import {MatDialog} from '@angular/material/dialog'
-import { DialogPaymentConfirmation } from './payment-confirmation/dialog-payment-confirmation.component';
+import {DialogPaymentConfirmation} from './payment-confirmation/dialog-payment-confirmation.component';
 import {CustomerService} from '../domain/customer/customer.service';
 
 @Component({
@@ -14,10 +14,11 @@ export class GooglePayComponent {
   @Input() theoreticalCourse: TheoreticalCourse;
   customerId: number;
 
-  constructor(private theoreticalCourseService: TheoreticalCourseService, public dialog : MatDialog, private customerService: CustomerService) {
+  constructor(private dialog: MatDialog,
+              private theoreticalCourseService: TheoreticalCourseService,
+              private customerService: CustomerService) {
     this.customerId = customerService.getLoggedCustomer().id;
   }
-
 
   private paymentRequest = {
     apiVersion: 2,

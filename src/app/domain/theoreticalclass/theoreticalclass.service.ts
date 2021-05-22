@@ -3,7 +3,6 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {TheoreticalClass} from './theoreticalclass';
-import {TheoreticalCourse} from '../theoreticalcourse/theoreticalcourse';
 
 @Injectable({
   providedIn: 'root'

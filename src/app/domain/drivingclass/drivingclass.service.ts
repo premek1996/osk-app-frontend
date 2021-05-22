@@ -1,8 +1,17 @@
 import {Injectable} from "@angular/core";
 import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {DrivingClass} from "./drivingclass";
+import {Customer} from "../customer/customer";
+import {DrivingClassDto} from "./drivingclassdto";
+
+const httpOptions = {
+  headers: new HttpHeaders(
+    {
+      'Content-Type': 'application/json'
+    })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,32 +19,30 @@ import {DrivingClass} from "./drivingclass";
 export class DrivingClassService {
 
   private readonly URL = 'http://localhost:8080/driving-classes';
-  private drivingClasses: DrivingClass[];
 
   constructor(private httpClient: HttpClient) {
   }
 
-  public getDrivingClassesByCourseIdAndCustomerId(courseId: number, customerId: number): DrivingClass[] {
-    this.setDrivingClasses(courseId, customerId);
-    return this.drivingClasses;
-  }
-
-  private setDrivingClasses(courseId: number, customerId: number) {
-    this.httpClient.get<DrivingClass[]>(this.URL + "/" + courseId + "/" + customerId)
+  public getDrivingClassesByCourseIdAndCustomerId(courseId: number, customerId: number): Observable<DrivingClass[]> {
+    return this.httpClient.get<DrivingClass[]>(this.URL + "/" + courseId + "/" + customerId)
       .pipe(
         catchError(this.handleError)
-      ).subscribe(data => {
-      this.drivingClasses = data;
-      console.log("Driving classes", this.drivingClasses);
-    });
+      );
   }
 
-  public getDrivingClassById(drivingClassID: number): DrivingClass {
-    for (let i = 0; i < this.drivingClasses.length; i++) {
-      if (this.drivingClasses[i].id == drivingClassID) {
-        return this.drivingClasses[i];
-      }
-    }
+  public createDrivingClass(drivingClass: DrivingClassDto): Observable<Customer> {
+    console.log('Creating drivingClass');
+    return this.httpClient.post<DrivingClassDto>(this.URL, JSON.stringify(drivingClass), httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  public getDrivingClassById(drivingClassId: number): Observable<DrivingClass> {
+    return this.httpClient.get<DrivingClass>(this.URL + '/' + drivingClassId)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse): Observable<any> {

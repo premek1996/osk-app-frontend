@@ -51,4 +51,5 @@ export class AuthorizationComponent implements OnInit {
           console.log('Something was wrong while processing customer', error);
         });
   }
+
 }

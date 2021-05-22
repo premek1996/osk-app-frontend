@@ -1,4 +1,31 @@
-<h1>Twoje jazdy</h1>
-<app-driving-class *ngFor="let drivingClass of drivingClasses"
-                   [drivingClass]="drivingClass">
-</app-driving-class>
+<div class="container">
+  <h1 class="py-2">Twoje jazdy</h1>
+  <hr>
+  <app-driving-class *ngFor="let drivingClass of drivingClasses"
+                     [drivingClass]="drivingClass">
+  </app-driving-class>
+
+  <div class="card shadow mb-1">
+
+    <div class="card-body">
+
+      <mat-form-field>
+        <input matInput type="datetime-local" [(ngModel)]="selectedStartTime" placeholder="Czas rozpoczęcia:">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Instruktor</mat-label>
+        <mat-select [(ngModel)]="selectedInstructor">
+          <mat-option *ngFor="let instructor of instructors" [value]="instructor">
+            {{instructor.firstName + " " + instructor.secondName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button class="btn btn-primary" (click)="onDrivingClassEnrollment()">Zapisz się na jazdę
+      </button>
+    </div>
+
+  </div>
+
+</div>
