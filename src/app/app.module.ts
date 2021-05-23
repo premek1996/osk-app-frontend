@@ -35,7 +35,7 @@ import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classe
 import {DrivingClassComponent} from './main-nav/driving-class/driving-class.component';
 import {DrivingClassService} from './domain/drivingclass/drivingclass.service';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {TheoreticalClassComponent} from './main-nav/theoretical-class/theoretical-class.component';
 import {CourseTheoreticalClassesComponent} from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
 import {TheoreticalClassService} from './domain/theoreticalclass/theoreticalclass.service';
@@ -43,7 +43,11 @@ import {GoogleCalendarComponent} from './google-calendar/google-calendar.compone
 import {DialogCalendarConfirmationComponent} from './google-calendar/calendar-confirmation/dialog-calendar-confirmation.component';
 import {MapComponent} from './main-nav/map-component/map.component';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';            // @agm/core
-import {AgmDirectionModule} from 'agm-direction';   // agm-direction
+import {AgmDirectionModule} from 'agm-direction';
+import {InstructorService} from "./domain/instructor/instructor.service";
+import {DialogPaymentConfirmation} from "./google-pay/payment-confirmation/dialog-payment-confirmation.component";
+import {MatSelectModule} from "@angular/material/select";
+import { DrivingClassEnrollmentComponent } from './main-nav/driving-classes/driving-class-enrollment/driving-class-enrollment.component';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -63,7 +67,9 @@ import {AgmDirectionModule} from 'agm-direction';   // agm-direction
     CourseTheoreticalClassesComponent,
     GoogleCalendarComponent,
     DialogCalendarConfirmationComponent,
-    MapComponent
+    MapComponent,
+    DialogPaymentConfirmation,
+    DrivingClassEnrollmentComponent
   ],
   imports: [
     BrowserModule,
@@ -91,10 +97,13 @@ import {AgmDirectionModule} from 'agm-direction';   // agm-direction
     FormsModule,
     MatNativeDateModule,
     appRoutingModule,
-    AgmDirectionModule
+    AgmDirectionModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     CustomerService,
+    InstructorService,
     CourseService,
     TheoreticalCourseService,
     TheoreticalClassService,

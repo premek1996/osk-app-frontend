@@ -29,10 +29,12 @@ export class MapComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.drivingClassId = params["drivingClassId"];
       console.log("DrivingClassId: ", this.drivingClassId);
-      this.drivingClass = this.drivingClassService.getDrivingClassById(this.drivingClassId);
-      console.log("DrivingClass: ", this.drivingClass);
+      this.drivingClassService.getDrivingClassById(this.drivingClassId).subscribe(data => {
+        this.drivingClass = data;
+        console.log("Driving classes", this.drivingClass);
+        this.getDirection();
+      });
     });
-    this.getDirection();
   }
 
   getDirection() {
@@ -44,7 +46,6 @@ export class MapComponent implements OnInit {
     for (let i = 1; i < this.locations.length - 1; i++) {
       this.waypoints.push({location: {lat: this.locations[i].lat, lng: this.locations[i].lng}});
     }
-
   }
 
 }

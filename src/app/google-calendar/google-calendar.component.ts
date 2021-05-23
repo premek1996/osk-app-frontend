@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogCalendarConfirmationComponent} from './calendar-confirmation/dialog-calendar-confirmation.component';
-
-
-
 
 @Component({
   selector: 'app-google-calendar',
@@ -12,8 +9,8 @@ import {DialogCalendarConfirmationComponent} from './calendar-confirmation/dialo
 })
 export class GoogleCalendarComponent implements OnInit {
 
-
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.dialog.open(DialogCalendarConfirmationComponent);
