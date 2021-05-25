@@ -1,6 +1,9 @@
 export interface Customer {
 
   id?: number;
-  mail?: string;
+  mail: string;
+  firstName?: string;
+  secondName?: string;
+  phoneNumber?: string;
 
 }

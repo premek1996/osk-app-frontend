@@ -1,0 +1,51 @@
+<div class="container">
+  <h1 class="py-2">Twoje dane osobowe</h1>
+  <hr>
+
+  <div class="card shadow mb-1">
+    <div class="card-body">
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Imię</mat-label>
+          <input type="text" matInput [errorStateMatcher]="matcher" [(ngModel)]="firstName"
+                 [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nazwisko</mat-label>
+          <input type="text" matInput [errorStateMatcher]="matcher" [(ngModel)]="secondName"
+                 [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Numer telefonu</mat-label>
+          <input type="tel" matInput [formControl]="telFormControl" [errorStateMatcher]="matcher"
+                 [(ngModel)]="phoneNumber">
+          <mat-error *ngIf="telFormControl.hasError('pattern')">
+            Wprowadzony numer telefonu jest nieprawidłowy!
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="mail"
+                 placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('email')">
+            Wprowadzony adres email jest nieprawidłowy!
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <button mat-raised-button class="btn btn-primary" (click)="onSavingPersonalData()">Zapisz</button>
+
+    </div>
+  </div>
+
+</div>
