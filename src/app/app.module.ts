@@ -47,7 +47,9 @@ import {AgmDirectionModule} from 'agm-direction';
 import {InstructorService} from "./domain/instructor/instructor.service";
 import {DialogPaymentConfirmation} from "./google-pay/payment-confirmation/dialog-payment-confirmation.component";
 import {MatSelectModule} from "@angular/material/select";
-import { DrivingClassEnrollmentComponent } from './main-nav/driving-classes/driving-class-enrollment/driving-class-enrollment.component';   // agm-direction
+import {DrivingClassEnrollmentComponent} from './main-nav/driving-classes/driving-class-enrollment/driving-class-enrollment.component';
+import {PersonalDataComponent} from './main-nav/personal-data/personal-data.component';
+import {PersonalDataConfirmationComponent} from './main-nav/personal-data/personal-data-confirmation/personal-data-confirmation.component';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { DrivingClassEnrollmentComponent } from './main-nav/driving-classes/driv
     DialogCalendarConfirmationComponent,
     MapComponent,
     DialogPaymentConfirmation,
-    DrivingClassEnrollmentComponent
+    DrivingClassEnrollmentComponent,
+    PersonalDataComponent,
+    PersonalDataConfirmationComponent
   ],
   imports: [
     BrowserModule,

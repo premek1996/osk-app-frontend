@@ -1,7 +1,7 @@
 export interface Instructor {
 
   id?: number;
-  mail?: string;
+  mail: string;
   firstName: string;
   secondName: string;
 

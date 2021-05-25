@@ -53,9 +53,9 @@ export class CustomerService {
       );
   }
 
-  public updateCustomer(id: string, customer: Customer): Observable<Customer> {
+  public updateCustomer(customer: Customer): Observable<Customer> {
     console.log('Updating customer');
-    return this.httpClient.put<Customer>(this.URL + '/' + id, JSON.stringify(customer), httpOptions)
+    return this.httpClient.put<Customer>(this.URL + '/' + customer.id, JSON.stringify(customer), httpOptions)
       .pipe(
         catchError(this.handleError)
       );

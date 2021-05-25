@@ -8,10 +8,12 @@ import {DrivingClassesComponent} from './main-nav/driving-classes/driving-classe
 import {CourseTheoreticalClassesComponent} from './main-nav/course-theoretical-classes/course-theoretical-classes.component';
 import {GoogleCalendarComponent} from './google-calendar/google-calendar.component';
 import {MapComponent} from "./main-nav/map-component/map.component";
+import {PersonalDataComponent} from "./main-nav/personal-data/personal-data.component";
 
 const routes: Routes = [
   {path: '', component: AllCourses},
   {path: 'allcourses', component: AllCourses},
+  {path: 'personaldata', component: PersonalDataComponent},
   {path: 'allcourses/:courseId/alltheoreticalcourses', component: AllTheoreticalCoursesComponent},
   {path: 'mycourses', component: MyCourses},
   {path: 'mycourses/:courseId/drivingclasses', component: DrivingClassesComponent},
