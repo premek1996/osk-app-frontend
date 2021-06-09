@@ -1,5 +1,4 @@
-<agm-map [latitude]="lat" [longitude]="lng" (mapReady)="mapReadyHandler($event)">
-
+<agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng" (mapReady)="mapReadyHandler($event)">
 
   <agm-marker
     *ngFor="let m of markers; let i = index"
@@ -8,3 +7,4 @@
   </agm-marker>
 
 </agm-map>
+<button mat-raised-button color="primary" (click)="onRouteSave()">Zapisz przejechaną trasę</button>

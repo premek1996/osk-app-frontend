@@ -31,7 +31,7 @@ export class MapComponent implements OnInit {
       console.log("DrivingClassId: ", this.drivingClassId);
       this.drivingClassService.getDrivingClassById(this.drivingClassId).subscribe(data => {
         this.drivingClass = data;
-        console.log("Driving classes", this.drivingClass);
+        console.log("Driving class", this.drivingClass);
         this.getDirection();
       });
     });

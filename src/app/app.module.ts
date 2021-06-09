@@ -50,7 +50,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {DrivingClassEnrollmentComponent} from './main-nav/driving-classes/driving-class-enrollment/driving-class-enrollment.component';
 import {PersonalDataComponent} from './main-nav/personal-data/personal-data.component';
 import {PersonalDataConfirmationComponent} from './main-nav/personal-data/personal-data-confirmation/personal-data-confirmation.component';
-import {TrackRouteComponent} from './main-nav/track-route/track-route.component';   // agm-direction
+import {TrackRouteComponent} from './main-nav/track-route/track-route.component';
+import { RouteSaveComponent } from './main-nav/track-route/route-save/route-save.component';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import {TrackRouteComponent} from './main-nav/track-route/track-route.component'
     DrivingClassEnrollmentComponent,
     PersonalDataComponent,
     PersonalDataConfirmationComponent,
-    TrackRouteComponent
+    TrackRouteComponent,
+    RouteSaveComponent
   ],
   imports: [
     BrowserModule,
