@@ -20,7 +20,6 @@ export class TrackRouteComponent implements OnInit {
 
   public mapReadyHandler(map: google.maps.Map): void {
     map.addListener('click', (e: google.maps.MouseEvent) => {
-
       this.zone.run(() => {
         this.markers.push({
           lat: e.latLng.lat(),
@@ -28,8 +27,6 @@ export class TrackRouteComponent implements OnInit {
         });
         console.log(this.markers);
       });
-
-
     });
   }
 
