@@ -9,6 +9,7 @@ import {CourseTheoreticalClassesComponent} from './main-nav/course-theoretical-c
 import {GoogleCalendarComponent} from './google-calendar/google-calendar.component';
 import {MapComponent} from "./main-nav/map-component/map.component";
 import {PersonalDataComponent} from "./main-nav/personal-data/personal-data.component";
+import {TrackRouteComponent} from "./main-nav/track-route/track-route.component";
 
 const routes: Routes = [
   {path: '', component: AllCourses},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'mycourses', component: MyCourses},
   {path: 'mycourses/:courseId/drivingclasses', component: DrivingClassesComponent},
   {path: 'mycourses/:courseId/drivingclasses/:drivingClassId/route', component: MapComponent},
+  {path: 'mycourses/:courseId/drivingclasses/:drivingClassId/track-route', component: TrackRouteComponent},
   {path: 'login', component: AuthorizationComponent},
   {path: 'theoreticalclasses/:courseId', component: CourseTheoreticalClassesComponent},
   {path: 'theoreticalclasses/:courseId/calendar', component: GoogleCalendarComponent},

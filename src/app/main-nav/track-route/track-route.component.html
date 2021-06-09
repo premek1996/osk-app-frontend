@@ -1,0 +1,10 @@
+<agm-map [latitude]="lat" [longitude]="lng" (mapReady)="mapReadyHandler($event)">
+
+
+  <agm-marker
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng">
+  </agm-marker>
+
+</agm-map>
