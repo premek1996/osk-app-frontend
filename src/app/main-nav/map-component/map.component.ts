@@ -39,6 +39,7 @@ export class MapComponent implements OnInit {
 
   getDirection() {
     this.locations = this.drivingClass.locations;
+    console.log(this.locations);
     this.origin = this.locations[0];
     this.destination = this.locations[this.locations.length - 1];
 

@@ -3,8 +3,8 @@ import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {DrivingClass} from "./drivingclass";
-import {Customer} from "../customer/customer";
 import {DrivingClassDto} from "./drivingclassdto";
+import {Location} from "./location";
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -30,7 +30,14 @@ export class DrivingClassService {
       );
   }
 
-  public createDrivingClass(drivingClass: DrivingClassDto): Observable<Customer> {
+  public getDrivingClassById(drivingClassId: number): Observable<DrivingClass> {
+    return this.httpClient.get<DrivingClass>(this.URL + '/' + drivingClassId)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  public createDrivingClass(drivingClass: DrivingClassDto): Observable<DrivingClassDto> {
     console.log('Creating drivingClass');
     return this.httpClient.post<DrivingClassDto>(this.URL, JSON.stringify(drivingClass), httpOptions)
       .pipe(
@@ -38,12 +45,14 @@ export class DrivingClassService {
       );
   }
 
-  public getDrivingClassById(drivingClassId: number): Observable<DrivingClass> {
-    return this.httpClient.get<DrivingClass>(this.URL + '/' + drivingClassId)
+  public updateDrivingClass(drivingClassId: number, locations: Location[]): Observable<DrivingClass> {
+    console.log('Updating drivingClass');
+    return this.httpClient.post<DrivingClass>(this.URL + '/' + drivingClassId, JSON.stringify(locations), httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
+
 
   private handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = '';

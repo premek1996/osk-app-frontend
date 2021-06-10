@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {DrivingClass} from "../../domain/drivingclass/drivingclass";
 import {MatDialog} from "@angular/material/dialog";
 import {RouteSaveComponent} from "./route-save/route-save.component";
+import {Location} from "../../domain/drivingclass/location";
 
 @Component({
   selector: 'app-track-route',
@@ -19,7 +20,7 @@ export class TrackRouteComponent implements OnInit {
   drivingClassId: number;
   drivingClass: DrivingClass;
 
-  markers: marker[] = [];
+  markers: Location[] = [];
 
   constructor(private drivingClassService: DrivingClassService,
               private route: ActivatedRoute,
@@ -51,12 +52,11 @@ export class TrackRouteComponent implements OnInit {
   }
 
   onRouteSave() {
-    this.dialog.open(RouteSaveComponent);
+    this.drivingClassService.updateDrivingClass(this.drivingClassId, this.markers)
+      .subscribe(data => {
+        console.log("Updated driving class", data);
+        this.dialog.open(RouteSaveComponent);
+      });
   }
 
-}
-
-interface marker {
-  lat: number;
-  lng: number;
 }

@@ -2,7 +2,9 @@
   <div class="card-body">
     <p>Czas rozpoczęcia: {{drivingClass.startTime|date:'dd.MM.yyyy'}} godz. {{drivingClass.startTime|date:'HH:mm'}}</p>
     <p>Instruktor: {{drivingClass.instructor.firstName}} {{drivingClass.instructor.secondName}}</p>
-    <button mat-raised-button routerLink="{{drivingClass.id}}/route">Wyświetl przejechaną trasę</button>
+    <button mat-raised-button routerLink="{{drivingClass.id}}/route" [disabled]="drivingClass.locations==null">Wyświetl
+      przejechaną trasę
+    </button>
     <button mat-raised-button routerLink="{{drivingClass.id}}/track-route">Wyznacz przejechaną trasę</button>
   </div>
 </div>
